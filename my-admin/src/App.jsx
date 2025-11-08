@@ -1,14 +1,15 @@
-import { Admin, Resource, ListGuesser } from "react-admin";
-import './App.css'
-import { createTrailbaseProvider } from '/workspaces/TAKE-FUCKING-2/my-admin/src/ra-trailbase.js';
+import { Admin, Resource, ListGuesser, EditGuesser } from "react-admin";
+import { createTrailbaseProvider } from "/workspaces/TAKE-FUCKING-2/my-admin/ra-trailbase.js";
 
 const TRAILBASE_URL = "https://humble-space-engine-q795q76j7q9p3q6w-4000.app.github.dev/";
-const {dataProvider} = await createTrailbaseProvider(TRAILBASE_URL);
+const {dataProvider} = createTrailbaseProvider(TRAILBASE_URL);
 
-const App = () => (
+const App = () =>
+   (
   <Admin dataProvider={dataProvider}>
-    <Resource name="posts" list={ListGuesser} />
-    <Resource name="comments" list={ListGuesser} />
+    <Resource name="authors" list={AuthorsList} edit={EditGuesser}/>
+    <Resource name="books" list={ListGuesser} edit={EditGuesser}/>
+    <Resource name="users" list={ListGuesser} edit={EditGuesser}/>
   </Admin>
 );
 

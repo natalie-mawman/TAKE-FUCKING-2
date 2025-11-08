@@ -1,5 +1,9 @@
 {
   "dependencies": {
-    "react-admin": "^5.12.3"
+    "ra-data-json-server": "^5.12.3",
+    "react": "^19.2.0",
+    "react-admin": "^5.12.3",
+    "react-dom": "^19.2.0",
+    "trailbase": "^0.8.0"
   }
 }
