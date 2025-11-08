@@ -1,19 +1,35 @@
-import { Admin, Resource, ListGuesser, EditGuesser, memoryStore } from "react-admin";
-import { createTrailbaseProvider } from "/workspaces/TAKE-FUCKING-2/my-admin/ra-trailbase.js";
+import { useState } from 'react'
+import reactLogo from './assets/react.svg'
+import viteLogo from '/vite.svg'
+import './App.css'
 
-const TRAILBASE_URL = "https://humble-space-engine-q795q76j7q9p3q6w-4000.app.github.dev/"
-const {dataProvider} = await createTrailbaseProvider(TRAILBASE_URL);
+function App() {
+  const [count, setCount] = useState(0)
 
-const App = () =>
-   (
-  <Admin 
-  store={memoryStore()}
-  dataProvider={dataProvider}
-  >
-    <Resource name="authors" list={ListGuesser} edit={EditGuesser}/>
-    <Resource name="books" list={ListGuesser} edit={EditGuesser}/>
-    <Resource name="users" list={ListGuesser} edit={EditGuesser}/>
-  </Admin>
-);
+  return (
+    <>
+      <div>
+        <a href="https://vite.dev" target="_blank">
+          <img src={viteLogo} className="logo" alt="Vite logo" />
+        </a>
+        <a href="https://react.dev" target="_blank">
+          <img src={reactLogo} className="logo react" alt="React logo" />
+        </a>
+      </div>
+      <h1>Vite + React</h1>
+      <div className="card">
+        <button onClick={() => setCount((count) => count + 1)}>
+          count is {count}
+        </button>
+        <p>
+          Edit <code>src/App.jsx</code> and save to test HMR
+        </p>
+      </div>
+      <p className="read-the-docs">
+        Click on the Vite and React logos to learn more
+      </p>
+    </>
+  )
+}
 
-export default App;
+export default App
